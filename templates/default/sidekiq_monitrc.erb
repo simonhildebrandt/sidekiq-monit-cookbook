@@ -1,0 +1,5 @@
+check process <%= @identifier %>
+  with pidfile <%= @pid_file %>
+  start program = "/bin/su - <%= @user %> -c 'cd <%= @current_path %> && RAILS_ENV=<%= @rails_env %> bundle exec sidekiq -P  <%= @pid_file %>'" with timeout 10 seconds
+  stop  program = "/bin/su - <%= @user %> -c 'kill -s TERM `cat <%= @pid_file %>`'" with timeout 10 seconds
+  group <%= @identifier %>_group
