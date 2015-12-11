@@ -1,3 +1,7 @@
+service 'monit' do
+  action :reload
+end
+
 node[:deploy].each do |application, deploy|
   template "#{node[:monit][:conf_dir]}/sidekiq_#{application}.monitrc" do
     mode 0644
