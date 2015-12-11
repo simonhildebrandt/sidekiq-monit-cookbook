@@ -1,4 +1,4 @@
-include_recipe "opsworks_sidekiq::service"
+include_recipe "sidekiq-monit::service"
 
 node[:deploy].each do |application, deploy|
   template "#{node[:monit][:conf_dir]}/sidekiq_#{application}.monitrc" do
