@@ -7,6 +7,4 @@ template node[:monit][:conf] do
   mode 0600
 
   notifies :reload, "service[monit]", :immediately
-
-  sleep(10)
 end
