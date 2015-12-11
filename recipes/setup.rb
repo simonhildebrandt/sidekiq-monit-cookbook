@@ -11,6 +11,7 @@ node[:deploy].each do |application, deploy|
       rails_env: deploy[:rails_env],
       identifier: "sidekiq_#{application}"
     })
-    notifies :reload, resources(:service => "monit"), :immediately
+
+    notifies :reload, "service[monit]", :immediately
   end
 end
