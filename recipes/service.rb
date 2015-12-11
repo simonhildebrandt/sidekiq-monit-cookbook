@@ -1,4 +1,5 @@
 service "monit" do
-  supports :status => false, :restart => true, :reload => true
+  supports :reload => true
+  reload_command "sudo monit reload"
   action :nothing
 end
