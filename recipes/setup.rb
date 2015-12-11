@@ -1,6 +1,4 @@
-service 'monit' do
-  action :reload
-end
+include_recipe "opsworks_sidekiq::service"
 
 node[:deploy].each do |application, deploy|
   template "#{node[:monit][:conf_dir]}/sidekiq_#{application}.monitrc" do
